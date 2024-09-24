@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bai Tap F8</title>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/font/themify-icons-font/themify-icons/themify-icons.css">
     <link rel="icon" type="image/x-icon" href="/assets/img/icon1.png">
 </head>
@@ -26,9 +27,9 @@
                         <i class="nav-arrow-dow ti-angle-down"></i>
                     </a>
                     <ul class="subnav">
-                        <li><a href="">Merchandise</a></li>
-                        <li><a href="">Extras</a></li>
-                        <li><a href="">Media</a></li>
+                        <li><a href="#">Merchandise</a></li>
+                        <li><a href="#">Extras</a></li>
+                        <li><a href="#">Media</a></li>
                     </ul>
                 </li>
             </ul>
@@ -37,6 +38,9 @@
             <!-- Begin: Search Button -->
             <div class="search-btn">
                 <i class="search-icon ti-search"></i>
+            </div>
+            <div id="mobile-menu" class="mobile-menu-btn">
+                <i class="menu-icon ti-menu"></i>
             </div>
 
             <!-- Begin: Search Button -->
@@ -181,8 +185,8 @@
 
 
     </div>
-    <div class=" open modal js-modal">
-        <div class="modal-container">
+    <div class="  modal js-modal">
+        <div class="modal-container js-modal-container">
 
             <div class="">
                 <i class="ti-close modal-close js-modal-close"></i>
@@ -217,6 +221,8 @@
         const buyBtns = document.querySelectorAll('.js-buy-tickes')
         const modal = document.querySelector('.js-modal')
         const modalClose = document.querySelector('.js-modal-close')
+        const modalContainer = document.querySelector('.js-modal-container')
+        console.log(modal)
         //Hàm hiển thị mua vé
         function showBuyTickes() {
             modal.classList.add('open')
@@ -231,6 +237,45 @@
         }
         //Hàm nghe hành vi click
         modalClose.addEventListener('click', hideBuyTickes)
+
+        modal.addEventListener('click', hideBuyTickes)
+
+        modalContainer.addEventListener('click', function (event) {
+            event.stopPropagation()
+        })
+        console.log(modalContainer)
+    </script>
+    <!-- Menu Mobile -->
+    <script>
+        var header = document.getElementById('header');
+        var mobileMenu = document.getElementById('mobile-menu');
+        var headerHeight = header.clientHeight;
+
+        mobileMenu.onclick = function () {
+            var isClose = header.clientHeight === headerHeight;
+            if (isClose) {
+                header.style.height = 'auto';
+            } else {
+                header.style.height = null;
+            }
+        }
+        // Tự động đóng khi chọn menu
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]');
+        for (var i = 0; i < menuItems.length; i++) {
+            var menuItem = menuItems[i];
+
+
+            menuItem.onclick = function (event) {
+                var isParentMenu = this.nextElementSibling && menuItem.nextElementSibling.classList.contains('subnav')
+                if (isParentMenu) {
+                    event.preventDefault();
+
+                } else {
+                    header.style.height = null;
+                }
+            }
+        }
+
     </script>
 </body>
 

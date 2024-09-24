@@ -1,0 +1,43 @@
+/* Tablet */
+@media (min-width:740px) and (max-width:1023px) {}
+
+/* Mobile */
+@media (max-width:740px) {
+    #header {
+        overflow: hidden;
+    }
+
+    #nav {
+        display: block;
+
+    }
+
+    #nav .subnav {
+        position: initial;
+        background: #333;
+        padding-left: 30px;
+        
+    }
+    #nav .subnav a{
+        color: #fff;
+        padding: 0px 40px;
+    }
+
+    #nav li {
+        position: relative;
+        display: block;
+    }
+   
+
+    #nav>li:first-child {
+        display: inline-block;
+    }
+
+    #header .mobile-menu-btn {
+        display: flex;
+    }
+
+    #header .search-btn {
+        display: none;
+    }
+}

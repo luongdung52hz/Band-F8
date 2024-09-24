@@ -90,6 +90,7 @@ html {
 
 
 
+
 }
 
 #nav {
@@ -132,7 +133,7 @@ html {
 
 #nav .subnav a {
     color: #000;
-    padding-left: 12px;
+    padding-left: 24px;
     line-height: 22px;
 
 }
@@ -149,6 +150,16 @@ html {
     display: none;
 }
 
+#header .mobile-menu-btn {
+    float: right;
+    padding: 0px 16px;
+    cursor: pointer;
+    position: absolute;
+    top:0;
+    right: 0;
+    display: none;
+}
+
 #header .search-btn {
 
     float: right;
@@ -157,11 +168,22 @@ html {
 
 }
 
+#header .mobile-menu-btn:hover {
+    background-color: #ccc;
+
+}
+
+#header .mobile-menu-btn:hover .menu-icon {
+    color: #000;
+
+}
+
 #header .search-btn:hover {
     background-color: #f44336;
 
 }
 
+#header .menu-icon,
 #header .search-icon {
     color: #fff;
     font-size: 20px;
@@ -206,8 +228,8 @@ html {
 
 #content .content-section {
     width: 800px;
+    max-width: 100%;
     padding: 64px 0px 112px;
-
     margin: auto;
 }
 
@@ -367,9 +389,10 @@ html {
 /* Footer */
 #footer {}
 
-.open {
+.modal.open {
     display: flex;
 }
+
 
 .modal {
     position: fixed;
@@ -378,10 +401,10 @@ html {
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
-    display: none;
+
 }
 
 .modal-header {
@@ -392,6 +415,7 @@ html {
     justify-content: center;
     font-size: 30px;
     color: #fff;
+
 }
 
 .modal-container {
@@ -401,6 +425,7 @@ html {
     max-width: calc(100%-32px);
     min-height: 200px;
     position: relative;
+    animation: modalFaceIn ease .3s;
 
 }
 
@@ -527,4 +552,15 @@ html {
 .link-w3 {
     font-size: 15px;
     color: #ccc;
+}
+
+@keyframes modalFaceIn {
+    from {
+        transform: translateY(-140px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+
 }
